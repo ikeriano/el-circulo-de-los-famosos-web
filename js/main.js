@@ -265,8 +265,8 @@ const ACC={
  empezar(){const js=[...$$('#sjug .j')].map(r=>{const c=r.querySelectorAll('input');return c[0].checked?{n:(c[1].value||'JUGADOR').toUpperCase(),cpu:c[2].checked}:null}).filter(Boolean);if(!js.length)return;localStorage.setItem('ec_nombre',js[0].n);if(js.every(j=>j.cpu))js[0].cpu=false;nuevaPartida(js,true)},
  opciones(){$('#omus').value=AJ.mus;$('#osfx').value=AJ.sfx;$('#ovoz').value=AJ.voz;$('#ocal').value=AJ.cal;pant('opciones')},
  volver(){pant('menu')},
- clasica(){if(window.Android&&Android.abrirClasica){const r=Android.abrirClasica();if(r!=='ok')aviso('APP CLÁSICA','Para jugar a la app clásica instala también <b>ElCirculo-AppClasica-1.0.apk</b> (está en la misma release). Después, este botón la abrirá directamente.')}
-  else aviso('APP CLÁSICA','La app clásica es la app original traducida al español y solo existe para Android: descarga <b>ElCirculo-AppClasica-1.0.apk</b> de la release en GitHub.')},
+ clasica(){if(window.Android&&Android.abrirClasica){const r=Android.abrirClasica();if(r!=='ok')aviso('APP CLÁSICA','Para jugar a la app clásica instala también <b>ElCirculo-AppClasica-1.0.1.apk</b> (está en la misma release; desinstala antes la app oficial The Wheel, usa el mismo nombre de paquete). Después, este botón la abrirá directamente.')}
+  else aviso('APP CLÁSICA','La app clásica es la app original traducida al español y solo existe para Android: descarga <b>ElCirculo-AppClasica-1.0.1.apk</b> de la release en GitHub.')},
  cerraraviso(){$('#aviso').classList.add('oculto')},
  pausa(){$('#pausa').classList.remove('oculto')},seguir(){$('#pausa').classList.add('oculto')},salir};
 document.addEventListener('click',e=>{const b=e.target.closest('[data-acc]');if(!b)return;if(AC.state!='running')AC.resume();if(musK==null&&!juego)musica('menu');sfx('select');ACC[b.dataset.acc]&&ACC[b.dataset.acc]()});
