@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="es"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="app-version" content="1.0">
+<title>El Círculo de los famosos</title>
+<link rel="stylesheet" href="app.css">
+<script type="importmap">{"imports":{"three":"./vendor/three.module.min.js"}}</script>
+</head><body>
+<div id="rot"><div>Gira el móvil para jugar en horizontal ↻</div></div>
+<canvas id="gl"></canvas>
+<div id="ui">
+ <section id="menu" class="pant">
+  <div id="mlogo"><img id="logoimg" alt="El Círculo de los famosos"><div id="logotxt" class="oculto"><b>EL</b><b>CÍRCULO</b><small>DE LOS FAMOSOS</small></div><div class="sub">EL JUEGO · 3D</div></div>
+  <div id="mbotones">
+   <button class="pill dorado" data-acc="jugar"><span class="ico">▶</span><b>Jugar</b><small>Partida rápida: tú solo frente al círculo, 7 categorías y la final</small></button>
+   <button class="pill" data-acc="programa"><span class="ico">📺</span><b>Programa</b><small>Programa completo: de 1 a 4 concursantes, presentación de los famosos y final</small></button>
+   <button class="pill" data-acc="clasica"><span class="ico">🎡</span><b>App clásica</b><small>La app original, traducida al español</small></button>
+   <button class="pill" data-acc="opciones"><span class="ico">⚙</span><b>Opciones</b><small>Música, sonidos, voz del presentador, calidad y cómo se juega</small></button>
+  </div>
+  <div id="ver">v1.0</div>
+ </section>
+ <section id="setup" class="pant oculto"><div class="marco">
+  <h2>PROGRAMA COMPLETO · ¿QUIÉN JUEGA?</h2>
+  <div id="sjug"></div>
+  <div class="fila"><button class="btn gris" data-acc="volver">VOLVER</button><button class="btn" data-acc="empezar">¡A JUGAR!</button></div>
+ </div></section>
+ <section id="opciones" class="pant oculto"><div class="marco">
+  <h2>OPCIONES</h2>
+  <label>Música <input type="range" min="0" max="100" id="omus"></label>
+  <label>Sonidos <input type="range" min="0" max="100" id="osfx"></label>
+  <label>Voz del presentador <input type="range" min="0" max="100" id="ovoz"></label>
+  <label>Calidad 3D <select id="ocal"><option value="baja">Baja (móviles sencillos)</option><option value="media">Media</option><option value="alta">Alta</option></select></label>
+  <div class="ayuda"><b>CÓMO SE JUEGA</b><br>
+  Siete famosos, cada uno experto en una categoría. Hay que <b>cerrar el círculo</b>: acertar las 7 categorías de la noche.
+  En cada turno gira el círculo de concursantes y elige a quien juega. Después gira el círculo de categorías: el experto de esa categoría se marca en <b style="color:#ffc23a">ORO</b> y el concursante marca a otro famoso en <b style="color:#ff4a4a">ROJO</b>.
+  Gira el círculo: el famoso donde se pare te da su consejo. Si aciertas sumas <b>3.000 €</b> al bote (<b>6.000 €</b> si cayó en oro).
+  Si cae en rojo o fallas, pierdes el turno y vuelves al círculo de concursantes.
+  Quien acierte la última categoría va a la <b>pregunta final</b>: plantarse con todo, o jugársela: si acierta dobla el bote y si falla se queda la mitad.</div>
+  <div class="fila"><button class="btn" data-acc="volver">VOLVER</button></div>
+ </div></section>
+ <section id="juego" class="pant oculto">
+  <div id="hud"><div id="bote"><small>BOTE</small><span>0 €</span></div><div id="turno"></div><div id="cats"></div></div>
+  <div id="cartel" class="oculto"></div>
+  <div id="qbox" class="oculto">
+   <div id="qbar"><div id="qico"></div><div id="qtxt"></div></div>
+   <div id="qans"></div>
+   <div id="qtime"><i></i></div>
+  </div>
+  <div id="consejo" class="oculto"><div class="av"></div><div class="tx"></div></div>
+  <div id="panel" class="oculto"><div class="tit"></div><div class="ops"></div></div>
+  <button id="bpausa" data-acc="pausa">II</button>
+ </section>
+ <div id="pausa" class="oculto"><div class="marco"><h2>PAUSA</h2><div class="fila"><button class="btn" data-acc="seguir">SEGUIR</button><button class="btn gris" data-acc="salir">SALIR AL MENÚ</button></div></div></div>
+ <div id="aviso" class="oculto"><div class="marco"><h2 class="t"></h2><p class="p"></p><div class="fila"><button class="btn" data-acc="cerraraviso">VALE</button></div></div></div>
+</div>
+<script src="js/config.js"></script>
+<script src="js/preguntas.js"></script>
+<script type="module" src="js/main.js"></script>
+</body></html>
